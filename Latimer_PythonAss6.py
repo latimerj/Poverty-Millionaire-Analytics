@@ -107,7 +107,7 @@ if uploaded_file is not None:
             )
         )
 
-        st.plotly_chart(fig_map, use_container_width=True)
+        st.plotly_chart(fig_map)
 
     # Q3: Poverty Rate (horizontal bar chart)
     with tab3:
@@ -133,3 +133,4 @@ if uploaded_file is not None:
 else:
 
     st.info("Please upload the Poverty/Millionaire Excel file to begin.")
+
