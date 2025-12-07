@@ -22,9 +22,9 @@ if uploaded_file is not None:
 
     # ---- CHANGE THESE COLUMN NAMES TO MATCH YOUR EXCEL FILE ----
     STATE_COL = "State"                  # should be state abbreviations for the map (e.g., MD, VA, CA)
-    POP_COL = "State_Population"
-    POVERTY_COL = "Number_in_Poverty"
-    MILLION_COL = "Number_of_Millionaires"
+    POP_COL = "State Popiulation"        #spelled incorrectly in excel
+    POVERTY_COL = "Number in Poverty"
+    MILLION_COL = "Number of Millionaires"
     # ------------------------------------------------------------
 
     # Calculated fields
@@ -131,4 +131,5 @@ if uploaded_file is not None:
         st.pyplot(fig2)
 
 else:
+
     st.info("Please upload the Poverty/Millionaire Excel file to begin.")
