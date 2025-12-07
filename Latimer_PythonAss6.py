@@ -33,14 +33,14 @@ if uploaded_file is not None:
 
     # Tabs for questions
     tab1, tab2, tab3 = st.tabs([
-        "Q1: Poverty vs Millionaires",
-        "Q2: Millionaire Density Map",
-        "Q3: Poverty Rate"
+        "Poverty vs Millionaires",
+        "Millionaire Density Map",
+        "Poverty Rate"
     ])
 
     # Q1: Side-by-side bar chart (poverty vs millionaires)
     with tab1:
-        st.subheader("Question 1: Compare Poverty vs Millionaire Population Across States")
+        st.subheader("Poverty vs Millionaires")
 
         states = sorted(df[STATE_COL].unique()) #creates a clean list of states.unique no duplicates and sorted alphabetically
         default_states = states[:5] if len(states) >= 5 else states #default selection to ensure chart appears on page open
@@ -84,7 +84,7 @@ if uploaded_file is not None:
 
     # Q2: Millionaire Density Map (choropleth)
     with tab2:
-        st.subheader("Question 2: Millionaire Density by U.S. State")
+        st.subheader("Millionaire Density Map")
 
         fig_map = px.choropleth(
             df,
@@ -111,7 +111,7 @@ if uploaded_file is not None:
 
     # Q3: Poverty Rate (horizontal bar chart)
     with tab3:
-        st.subheader("Question 3: Poverty Rate Across States")
+        st.subheader("Poverty Rate Comparison")
 
         df_sorted = df.sort_values("Poverty_Rate", ascending=False).copy()
         df_sorted["Poverty_Rate_Percent"] = df_sorted["Poverty_Rate"] * 100
@@ -133,4 +133,5 @@ if uploaded_file is not None:
 else:
 
     st.info("Please upload the Poverty/Millionaire Excel file to begin.")
+
 
