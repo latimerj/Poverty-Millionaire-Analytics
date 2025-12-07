@@ -64,14 +64,17 @@ if uploaded_file is not None:
                 [i - width / 2 for i in x], #move bars to the left
                 subset[POVERTY_COL], #height of each bar based on dataset
                 width=width,        
-                label="Number in Poverty"  #name for legend
+                label="Number in Poverty", #name for legend
+                color="#ff66b3"
             )
 
             ax.bar(
                 [i + width / 2 for i in x], #move bar to right
                 subset[MILLION_COL],
                 width=width,
-                label="Number of Millionaires"
+                label="Number of Millionaires",
+                color="#ffd700"
+                
             )
 
             ax.set_xticks(list(x)) #where to place labels
@@ -98,7 +101,8 @@ if uploaded_file is not None:
                 MILLION_COL: True,
                 "Millionaire_Density": ":.6f"
             },
-            title="Millionaire Density by U.S. State"
+            title="Millionaire Density Map",
+            color_continuous_scale=["#ffb3e6", "#ff4dc4", "#ff0080", "#b30059"]
         )
 
         fig_map.update_layout(
@@ -120,7 +124,8 @@ if uploaded_file is not None:
 
         ax2.barh(
             df_sorted[STATE_COL],
-            df_sorted["Poverty_Rate_Percent"]
+            df_sorted["Poverty_Rate_Percent"],
+            color="#ff1493"
         )
 
         ax2.set_xlabel("Poverty Rate (%)")
@@ -133,5 +138,6 @@ if uploaded_file is not None:
 else:
 
     st.info("Please upload the Poverty/Millionaire Excel file to begin.")
+
 
 
